@@ -1,0 +1,16 @@
+.about-section {
+    background-color: #e9ecef; /* Light gray background */
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.about-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+

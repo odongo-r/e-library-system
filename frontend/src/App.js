@@ -1,14 +1,17 @@
 // frontend/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import './styles.css';  
+import LandingPage from './components/LandingPage';
+import AddBook from './components/AddBook'; // Keep AddBook if needed
 
 const App = () => {
     return (
         <Router>
             <div>
-                <h1>E-Library System</h1>
                 <Routes>
-                    <Route path="/" element={<h2>Welcome to the E-Library</h2>} />
+                    <Route path="/" element={<LandingPage />} />
+                    <Route path="/add-book" element={<AddBook />} />
                     {/* Additional routes will go here */}
                 </Routes>
             </div>
