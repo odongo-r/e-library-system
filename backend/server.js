@@ -11,10 +11,12 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// MongoDB connection
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// MongoDB connection (for local MongoDB)
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/e-library-system';
+
+mongoose.connect(MONGODB_URI)
     .then(() => console.log('MongoDB connected'))
-    .catch(err => console.error(err));
+    .catch(err => console.error('Error connecting to MongoDB:', err));
 
 // Basic route
 app.get('/', (req, res) => {
