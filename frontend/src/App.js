@@ -1,20 +1,23 @@
 // frontend/src/App.js
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './styles.css';  
+import './styles.css';
 import LandingPage from './components/LandingPage';
-import AddBook from './components/AddBook'; // Keep AddBook if needed
+import Login from './components/Login';
+import Signup from './components/Signup';
+import Demo from './components/Demo'; // A simple Demo component
+import AboutSection from './components/AboutSection';
 
 const App = () => {
     return (
         <Router>
-            <div>
-                <Routes>
-                    <Route path="/" element={<LandingPage />} />
-                    <Route path="/add-book" element={<AddBook />} />
-                    {/* Additional routes will go here */}
-                </Routes>
-            </div>
+            <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/demo" element={<Demo />} />
+                <Route path="/about" element={<AboutSection />} />
+            </Routes>
         </Router>
     );
 };

@@ -6,11 +6,11 @@ import Highlights from './Highlights';
 import AboutSection from './AboutSection';
 import FeaturesSection from './FeaturesSection';
 import Footer from './Footer';
-import './LandingPage.css'; // Import the CSS file for the landing page
+import './LandingPage.css';
 
 const LandingPage = () => {
     return (
-        <div>
+        <div className="landing-page">
             <nav className="navbar">
                 <ul>
                     <li><Link to="/">Home</Link></li>
