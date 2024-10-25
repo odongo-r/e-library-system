@@ -1,43 +1,59 @@
 // frontend/src/components/Signup.js
 import React, { useState } from 'react';
-import axios from 'axios';
-import './Signup.css'; // Import the CSS file for styling
+import axios from '../utils/axiosInstance';
+import { useNavigate } from 'react-router-dom';
+import '../styles/Signup.css';
 
-const Register = () => {
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        password: ''
-    });
-    const [error, setError] = useState('');
+function Signup() {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post('/auth/signup', { name, email, password });
+      navigate('/login'); // Redirect to login after successful signup
+    } catch (error) {
+      setError('Signup failed. Please try again.');
+      console.error('Signup error:', error);
+    }
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:5000/api/auth/register', formData);
-            console.log('User registered:', response.data);
-            // Redirect to login after successful registration
-        } catch (error) {
-            setError(error.response.data.errors[0].msg || 'Registration error');
-        }
-    };
+  return (
+    <div className="signup-container">
+      <form className="signup-form" onSubmit={handleSignup}>
+        <h2>Signup</h2>
+        {error && <div className="signup-error">{error}</div>}
+        <input 
+          type="text" 
+          placeholder="Name" 
+          value={name} 
+          onChange={(e) => setName(e.target.value)} 
+          required 
+        />
+        <input 
+          type="email" 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+          required 
+        />
+        <input 
+          type="password" 
+          placeholder="Password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+          required 
+        />
+        <button type="submit">Signup</button>
+        <a href="/login">Already have an account? Login here</a>
+      </form>
+    </div>
+  );
+}
 
-    return (
-        <div className="signup-container">
-            {error && <p className="error-message">{error}</p>}
-            <form onSubmit={handleSubmit} className="signup-form">
-                <input type="text" name="name" placeholder="Name" onChange={handleChange} required />
-                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                <button type="submit">Register</button>
-            </form>
-        </div>
-    );
-};
-
-export default Register;
+export default Signup;
 
