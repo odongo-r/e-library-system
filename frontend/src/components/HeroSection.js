@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Container, Typography } from '@mui/material';
-import './HeroSection.css'; // Create CSS for additional custom styles
+import '../styles/HeroSection.css'; // Create CSS for additional custom styles
 
 const HeroSection = () => {
     return (
