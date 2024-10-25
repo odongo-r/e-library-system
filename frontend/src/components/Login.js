@@ -1,41 +1,54 @@
 // frontend/src/components/Login.js
 import React, { useState } from 'react';
-import axios from 'axios';
-import './Login.css'; // Import the CSS file for styling
+import axios from '../utils/axiosInstance';
+import { useNavigate } from 'react-router-dom';
+import '../styles/Login.css';
 
-const Login = () => {
-    const [formData, setFormData] = useState({
-        email: '',
-        password: ''
-    });
-    const [error, setError] = useState('');
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-    const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    console.log('Logging in with:', { email, password }); // Debug log
+    try {
+      const response = await axios.post('/auth/login', { email, password });
+      console.log('Login response:', response); // Debug log
+      localStorage.setItem('token', response.data.token);
+      navigate('/dashboard'); // Redirect to Dashboard on successful login
+    } catch (error) {
+      setError('Invalid email or password. Please try again.');
+      console.error('Login error:', error.response?.data || error); // Log detailed error
+    }
+  };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', formData);
-            console.log('User logged in:', response.data);
-            // Redirect or perform actions after successful login
-        } catch (error) {
-            setError(error.response.data.message || 'Login error');
-        }
-    };
-
-    return (
-        <div className="login-container">
-            {error && <p className="error-message">{error}</p>}
-            <form onSubmit={handleSubmit} className="login-form">
-                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-                <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
-                <button type="submit">Login</button>
-            </form>
-        </div>
-    );
-};
+  return (
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleLogin}>
+        <h2>Login</h2>
+        {error && <div className="login-error">{error}</div>}
+        <input 
+          type="email" 
+          placeholder="Email" 
+          value={email} 
+          onChange={(e) => setEmail(e.target.value)} 
+          required 
+        />
+        <input 
+          type="password" 
+          placeholder="Password" 
+          value={password} 
+          onChange={(e) => setPassword(e.target.value)} 
+          required 
+        />
+        <button type="submit">Login</button>
+        <a href="/signup">Don't have an account? Register here</a>
+      </form>
+    </div>
+  );
+}
 
 export default Login;
 
