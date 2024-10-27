@@ -1,0 +1,45 @@
+.analytics-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  max-width: 1350px; /* Match other pages for consistency */
+  margin: 0 auto; /* Center the container */
+  background-color: #f5f5f5; /* Background for the whole section */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+  padding: 10px; /* Padding around the content */
+}
+
+.chart-container {
+  width: 80%; /* Set the width of the container */
+  margin: 10px auto; /* Center the container with some margin */
+  padding: 20px; /* Add some padding */
+  border: 1px solid #ddd; /* Optional border */
+  border-radius: 8px; /* Optional rounded corners */
+  background-color: #f9f9f9; /* Optional background color */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+}
+
+.management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #3f51b5;
+  color: white;
+}
+
+.logout-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #d32f2f;
+}
+

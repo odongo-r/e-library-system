@@ -1,0 +1,52 @@
+.review-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 850px; /* Increased maximum width for a larger form */
+  margin: 20px auto; /* Center the form */
+  padding: 40px; /* Increased padding for a more spacious layout */
+  background-color: #ffffff; /* White background for contrast */
+  border: 1px solid #ddd; /* Light border for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.review-textarea {
+  margin: 20px 0; /* Increased margin for better spacing */
+  padding: 20px; /* Increased inner padding for a more comfortable input area */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  resize: none; /* Disable resizing */
+  height: 150px; /* Increased height for the textarea */
+  font-size: 16px; /* Font size */
+}
+
+.rating-input {
+  margin: 15px 0; /* Increased margin for better spacing */
+  padding: 15px; /* Increased inner padding */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 16px; /* Font size */
+}
+
+.submit-button {
+  background-color: #3f51b5; /* Primary color */
+  color: white; /* Text color */
+  border: none; /* Remove border */
+  padding: 12px 25px; /* Increased button padding */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer on hover */
+  font-size: 16px; /* Font size */
+  transition: background-color 0.3s ease; /* Smooth background change */
+}
+
+.submit-button:hover {
+  background-color: #303f9f; /* Darker shade on hover */
+}
+
+/* Optional: Media query for responsiveness */
+@media (max-width: 600px) {
+  .review-form {
+    width: 90%; /* Full width on smaller screens */
+  }
+}
+

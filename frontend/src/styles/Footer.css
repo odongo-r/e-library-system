@@ -1,0 +1,22 @@
+.footer {
+    background-color: #3f51b5; /* Blue background */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed; /* Keeps the footer at the bottom */
+    bottom: 0; /* Aligns the footer to the bottom */
+    left: 0;
+    width: 100%; /* Ensures the footer spans the entire width of the page */
+    z-index: 100; /* Keeps it above other elements */
+}
+
+.footer p {
+    margin: 0;
+    font-size: 1em;
+}
+
+/* Additional styling to ensure the content doesn't overlap with the footer */
+body {
+    margin-bottom: 60px; /* Adjust this value to match the height of your footer */
+}
+

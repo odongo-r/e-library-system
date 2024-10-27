@@ -1,0 +1,79 @@
+/* frontend/src/styles/Login.css */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full height to center the form vertically */
+    background-color: #f0f2f5; /* Softer background for better contrast */
+}
+
+.login-form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 30px 40px; /* More padding for better spacing */
+    border-radius: 10px; /* Slightly larger radius for a smoother look */
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1); /* More defined shadow for depth */
+    width: 100%;
+    max-width: 400px; /* Fixed width for smaller screens */
+}
+
+.login-form h2 {
+    margin-bottom: 25px;
+    color: #007bff; /* Primary blue color */
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.login-form input:focus {
+    border-color: #007bff; /* Blue border on focus */
+    outline: none;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.login-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.login-form a {
+    display: block;
+    margin-top: 15px;
+    color: #007bff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.login-form a:hover {
+    text-decoration: underline;
+}
+
+.login-error {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
