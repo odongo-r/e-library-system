@@ -15,22 +15,17 @@ app.use('/api/auth', authRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/analytics', analyticsRoutes);
 
-mongoose.set('strictQuery', true);
-
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-})
+mongoose.connect(process.env.MONGO_URI)
   .then(() => {
-    console.log(`Connected to MongoDB`);
+    console.log('Successfully connected to MongoDB');
     app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`Server started successfully on port ${PORT}`);
     });
   })
   .catch((error) => {
-    console.error('MongoDB connection error:', error);
+    console.error('Error connecting to MongoDB:', error.message);
     process.exit(1);
   });
 
