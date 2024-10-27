@@ -117,28 +117,26 @@ Replace your-backend-api-url with the URL of your backend API.
 ## Deployment
 To deploy the application on Render, follow these steps:
 
-```
-Push the Code: Make sure all changes are pushed to your GitHub repository.
-Create a New Web Service: On the Render dashboard, create a new web service and link it to your GitHub repository.
-Set Build and Start Commands: Use the following commands:
-Build Command: cd frontend && npm install && npm run build
-Start Command: cd frontend && npm start
-Publish Directory: frontend/build
-Configure Environment Variables: Add any necessary environment variables in the Render dashboard.
-Refer to the Render documentation for more details.
-```
+- Push the Code: Make sure all changes are pushed to your GitHub repository.
+- Create a New Web Service: On the Render dashboard, create a new web service and link it to your GitHub repository.
+- Set Build and Start Commands: Use the following commands:
+- Build Command: cd frontend && npm install && npm run build
+- Start Command: cd frontend && npm start
+- Publish Directory: frontend/build
+- Configure Environment Variables: Add any necessary environment variables in the Render dashboard.
+- Refer to the Render documentation for more details.
+
 
 ## Contributing
 Contributions are welcome! To contribute:
 
-`
-Fork the repository.
-Create a new branch for your feature (git checkout -b feature/AmazingFeature).
-Commit your changes (git commit -m 'Add some AmazingFeature').
-Push to the branch (git push origin feature/AmazingFeature).
-Open a pull request.
-Please make sure to follow the Code of Conduct for this project.
-`
+- Fork the repository.
+- Create a new branch for your feature (git checkout -b feature/AmazingFeature).
+- Commit your changes (git commit -m 'Add some AmazingFeature').
+- Push to the branch (git push origin feature/AmazingFeature).
+- Open a pull request.
+- Please make sure to follow the Code of Conduct for this project.
+
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
