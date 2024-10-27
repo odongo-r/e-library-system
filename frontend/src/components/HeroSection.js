@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button, Container, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for routing
 import '../styles/HeroSection.css'; // Create CSS for additional custom styles
 
 const HeroSection = () => {
+    const navigate = useNavigate(); // Initialize useNavigate
+
     return (
         <section className="hero-section">
             <Container>
@@ -12,7 +15,12 @@ const HeroSection = () => {
                 <Typography variant="h5" component="p">
                     Access thousands of books and resources anytime, anywhere.
                 </Typography>
-                <Button variant="contained" color="primary" size="large">
+                <Button 
+                    variant="contained" 
+                    color="primary" 
+                    size="large" 
+                    onClick={() => navigate('/dashboard')} // Navigate to the Dashboard
+                >
                     Start Reading
                 </Button>
             </Container>
