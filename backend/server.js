@@ -17,11 +17,15 @@ app.use('/api/analytics', analyticsRoutes);
 
 const PORT = process.env.PORT || 5000;
 
+console.log('Starting the server...');
+console.log(`PORT: ${PORT}`);
+console.log(`MONGO_URI: ${process.env.MONGO_URI ? 'Exists' : 'Missing'}`);
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log('Successfully connected to MongoDB');
     app.listen(PORT, '0.0.0.0', () => {
-      console.log(`Server started successfully on port ${PORT}`);
+      console.log(`Server running on port ${PORT}`);
     });
   })
   .catch((error) => {
