@@ -1,20 +1,14 @@
-
-Copy code
 # E-Library System
 
-## Overview
-
-The **E-Library System** is a web application that allows users to manage digital books and resources efficiently. It provides an intuitive interface for managing book collections, tracking borrowing records, and organizing users. The application is built using a React frontend and is designed for deployment on platforms like Render for seamless scalability and deployment.
+Welcome to the E-Library System! This project is a web application designed to manage books and user authentication. Users can browse, borrow, and return books, as well as manage their accounts.
 
 ## Table of Contents
 
 - [Features](#features)
-- [Demo](#demo)
-- [Project Structure](#project-structure)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Running the Project](#running-the-project)
-- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
 - [Deployment](#deployment)
 - [Contributing](#contributing)
 - [License](#license)
@@ -22,100 +16,124 @@ The **E-Library System** is a web application that allows users to manage digita
 
 ## Features
 
-- **User Management**: Add, edit, and manage users with different roles (e.g., Admin, Member).
-- **Book Management**: Add, edit, delete, and search for books.
-- **Borrowing Records**: Track the borrowing history and due dates for each user.
-- **Responsive Design**: Optimized for mobile, tablet, and desktop viewing.
-- **Search Functionality**: Easily search for books by title, author, or ISBN.
+- User registration and authentication
+- Browse available books
+- Borrow and return books
+- User account management
+- Admin panel for managing books and users
+- Analytics for usage statistics
 
-## Demo
-
-Check out the live version of the project [here](https://your-render-deployed-link).
-
-## Project Structure
-
-```plaintext
-e-library-system/
-├── frontend/
-│   ├── public/
-│   │   ├── index.html
-│   │   ├── manifest.json
-│   │   └── ...
-│   ├── src/
-│   │   ├── components/
-│   │   ├── pages/
-│   │   ├── services/
-│   │   ├── App.js
-│   │   ├── index.js
-│   │   └── ...
-│   ├── package.json
-│   └── ...
-├── .gitignore
-├── README.md
-└── ...
-```
 ## Technologies Used
-### Frontend:
 
-**React** (JavaScript library for building user interfaces)
-**React** Router (for managing routes)
-**Axios** (for API requests)
-**Material-UI** (for UI components and styling)
+This project utilizes the following technologies:
 
-### Backend:
-
-**Node.js** (for running server-side code)
-**Express** (for API development)
-**Database:** MongoDB (for storing books, users, and borrowing records)
-
-**Deployment:** Render (for hosting the frontend and backend)
+- **Frontend**: 
+  - React.js
+  - Bootstrap or Material-UI (depending on your choice)
+- **Backend**: 
+  - Node.js
+  - Express.js
+  - MongoDB
+- **Others**: 
+  - Mongoose (for MongoDB object modeling)
+  - dotenv (for environment variable management)
+  - CORS (for cross-origin resource sharing)
 
 ## Installation
-Follow these steps to get a local copy of the project up and running:
 
-**Prerequisites**
-Node.js (v16+)
-Git for version control
+To get a copy of this project up and running on your local machine, follow these steps:
 
-Clone the Repository
-````
-git clone https://github.com/odongo-r/e-library-system.git
-cd e-library-system
-````
-**Frontend Setup**
-Navigate to the frontend directory and install the dependencies:
-```
-cd frontend
-npm install
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/odongo-r/e-library-system.git
+
+```markdown
+## Installation
+
+2. **Navigate into the project directory**:
+   ```bash
+   cd e-library-system
+   ```
+
+3. **Install backend dependencies**:
+   ```bash
+   cd backend
+   npm install
+   ```
+
+4. **Set up environment variables**: Create a `.env` file in the `backend` directory and add the following variables:
+   ```
+   MONGO_URI=<your_mongodb_connection_string>
+   PORT=5000
+   ```
+
+5. **Install frontend dependencies**:
+   ```bash
+   cd ../frontend
+   npm install
+   ```
+
+6. **Start the development server**:
+   - For the backend:
+     ```bash
+     cd backend
+     npm start
+     ```
+   - For the frontend:
+     ```bash
+     cd ../frontend
+     npm start
+     ```
+
+## Usage
+
+Once the servers are running, you can access the application in your browser at `http://localhost:3000`. You can register a new user account or log in with existing credentials.
+
+### API Documentation
+
+The backend API is structured as follows:
+
+- **Authentication Routes**:
+  - `POST /api/auth/register` - Register a new user
+  - `POST /api/auth/login` - Log in an existing user
+- **Books Routes**:
+  - `GET /api/books` - Retrieve all available books
+  - `POST /api/books` - Add a new book (Admin only)
+  - `PUT /api/books/:id` - Update a book's information (Admin only)
+  - `DELETE /api/books/:id` - Delete a book (Admin only)
+- **Analytics Routes**:
+  - `GET /api/analytics` - Retrieve usage statistics
+
+### Example Requests
+
+#### Register a User
+```http
+POST /api/auth/register
+Content-Type: application/json
+
+{
+  "username": "exampleUser",
+  "password": "examplePass"
+}
 ```
 
-**Running the Project**
+#### Log In a User
+```http
+POST /api/auth/login
+Content-Type: application/json
 
-***Development Mode***
-To start the development server for the frontend:
+{
+  "username": "exampleUser",
+  "password": "examplePass"
+}
+```
 
+#### Retrieve All Books
+```http
+GET /api/books
 ```
-npm start
-```
-This will run the frontend in development mode. Open `http://localhost:3000`to view it in your browser.
-
-***Building for Production***
-To create an optimized production build, run:
-```
-npm run build
-```
-The build will be created in the frontend/build directory, ready for deployment.
-
-***Environment Variables***
-The following environment variables are required for the project. Create a .env file in the frontend directory and add the required values:
-
-```
-REACT_APP_API_URL=your-backend-api-url
-```
-Replace your-backend-api-url with the URL of your backend API.
 
 ## Deployment
-To deploy the application on Render, follow these steps:
 
 - Push the Code: Make sure all changes are pushed to your GitHub repository.
 - Create a New Web Service: On the Render dashboard, create a new web service and link it to your GitHub repository.
@@ -128,7 +146,6 @@ To deploy the application on Render, follow these steps:
 
 
 ## Contributing
-Contributions are welcome! To contribute:
 
 - Fork the repository.
 - Create a new branch for your feature (git checkout -b feature/AmazingFeature).
@@ -138,8 +155,16 @@ Contributions are welcome! To contribute:
 - Please make sure to follow the Code of Conduct for this project.
 
 ## License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Contact
-Ronald Odongo - LinkedIn | GitHub
-For issues or inquiries, please open an issue on the GitHub repository.
+
+For any inquiries or support, please reach out to:
+
+- **Ronald Odongo**
+- Email: your.email@example.com
+- GitHub: [odongo-r](https://github.com/odongo-r)
+
+Thank you for your interest in the E-Library System!
+```
