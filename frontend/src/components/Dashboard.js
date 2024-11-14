@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
+/* frontend/src/components/Dashboard.js */
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { Menu, MenuItem, IconButton, Button, Typography, Box } from '@mui/material';
-import { useState } from 'react';
 import '../styles/Dashboard.css';
 
 function Dashboard() {
@@ -27,7 +27,7 @@ function Dashboard() {
         // e.g., dispatch({ type: 'LOGOUT' });
 
         // Redirect to the landing page
-        navigate('/'); // Redirects to the landing page
+        navigate('/'); // 
     };
 
     return (
@@ -44,13 +44,16 @@ function Dashboard() {
                     anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                     transformOrigin={{ vertical: 'top', horizontal: 'right' }}
                 >
-                    <MenuItem component={Link} to="/profile" onClick={handleClose}>Profile</MenuItem>
-                    <MenuItem component={Link} to="/settings" onClick={handleClose}>Settings</MenuItem>
-                    <MenuItem onClick={() => { handleLogout(); handleClose(); }}>Logout</MenuItem> {/* Updated Logout item */}
+                    <MenuItem component={Link} to="/ProfileSection" onClick={handleClose}>Profile</MenuItem>
+                    <MenuItem component={Link} to="/Settings" onClick={handleClose}>Settings</MenuItem>
+                    <MenuItem onClick={() => { handleLogout(); handleClose(); }}>Logout</MenuItem> 
                 </Menu>
             </header>
             <Box className="dashboard-content">
                 <Button component={Link} to="/books-management" variant="contained">Books Management</Button>
+                <Button component={Link} to="/booklist" variant="contained" color="primary">
+                    Search & Query Books
+                </Button>
                 <Button component={Link} to="/borrowing-reservations" variant="contained">Borrowing & Reservations</Button>
                 <Button component={Link} to="/analytics" variant="contained">Analytics</Button>
                 <Button component={Link} to="/recommendations" variant="contained">Recommendations</Button>
@@ -61,4 +64,3 @@ function Dashboard() {
 }
 
 export default Dashboard;
-

@@ -1,4 +1,4 @@
-// frontend/src/components/Signup.js
+/* frontend/src/components/Signup.js */
 import React, { useState } from 'react';
 import axios from '../utils/axiosInstance';
 import { useNavigate } from 'react-router-dom';
