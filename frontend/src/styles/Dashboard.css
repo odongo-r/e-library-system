@@ -1,6 +1,7 @@
 /* frontend/src/styles/Dashboard.css */
 .dashboard {
     padding: 10px;
+    background-color: #f5f5f5;
 }
 
 .dashboard-header {
@@ -20,4 +21,5 @@
     margin: 0 auto;
     padding: 40px;
 }
+
 
