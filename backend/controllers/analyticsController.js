@@ -1,3 +1,4 @@
+/* backend/controllers/analyticsController.js*/
 const Book = require('../models/Book'); // Adjust this according to your book model
 
 const getBorrowTrends = async (req, res) => {
