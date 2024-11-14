@@ -163,7 +163,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 For any inquiries or support, please reach out to:
 
 - **Ronald Odongo**
-- Email: your.email@example.com
+- Email: [Email ME](ronaldodongo76@gmail.com)
 - GitHub: [odongo-r](https://github.com/odongo-r)
 
 Thank you for your interest in the E-Library System!
