@@ -1,3 +1,4 @@
+/* backend/controllers/authController.js*/
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -28,3 +29,4 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: 'Error logging in' });
   }
 };
+
